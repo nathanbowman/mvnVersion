@@ -4,9 +4,15 @@
 package mvnVersion;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.ObjDoubleConsumer;
 import java.util.stream.Collectors;
 
 /**
@@ -30,6 +36,19 @@ public class LambdaTest {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		
+		List<String> names = Arrays.asList("John", "Freddy", "Samuel");
+		names.forEach(name -> System.out.println("Hello, " + name));
+		
+		Map<String, Integer> ages = new HashMap<>();
+		ages.put("John", 25);
+		ages.put("Freddy", 24);
+		ages.put("Samuel", 30);
+		
+		BiConsumer<String,Integer> test = (x, y) -> System.out.println(x + " is " + y + " years old");
+		
+		ages.forEach(test);
+		
 		List<LambdaTest> list=new ArrayList<LambdaTest>();  
 		for(int i = 0; i < 1000000; i++) {
 			list.add(new LambdaTest("Rick"));         
